@@ -10,6 +10,7 @@
 #include "acceleration.h"
 #include "position.h"
 #include "velocity.h"
+#include <cmath>
 #include <iosfwd>
 #include <iostream>
 
@@ -39,6 +40,13 @@ Position& Position::operator = (const Position& pt)
  * update position from velocity, acceleration
  * and time
  *****************************************/
+void Position::addPixels(double pixels, double directionRadians)
+{
+   addPixelsX(pixels * sin(directionRadians));
+   addPixelsY(pixels * cos(directionRadians));
+}
+
+
 void Position::add(const Velocity& v, const Acceleration& a, double time)
 {
    x += (v.getDX() * time) + ((.5 * a.getDDX()) * (time * time));

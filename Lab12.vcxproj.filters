@@ -13,5 +13,249 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\test">
+      <UniqueIdentifier>{5c84913c-9fb8-497c-90de-4d9432a2f58f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\satellite">
+      <UniqueIdentifier>{21ff1217-a43b-4f71-aaa9-c5c78ae7c17d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\satellite\part">
+      <UniqueIdentifier>{597b414f-3332-4463-8db0-4893eb6d212b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\physics">
+      <UniqueIdentifier>{430cc414-1e2c-4d35-90db-284415c56107}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\satellite">
+      <UniqueIdentifier>{7513f17e-a6ee-45fc-8958-3af701fb738f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\satellite\part">
+      <UniqueIdentifier>{b2629347-7b3f-4f20-874c-50cdfbcb0b9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\test">
+      <UniqueIdentifier>{85892e41-fa91-4779-a7d6-52f7effc7076}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\physics">
+      <UniqueIdentifier>{b551c5e6-ca07-4a80-83c7-a7104fc1e754}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Lab12.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uiDraw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uiInteract.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="projectile.cpp">
+      <Filter>Source Files\satellite</Filter>
+    </ClCompile>
+    <ClCompile Include="satellite.cpp">
+      <Filter>Source Files\satellite</Filter>
+    </ClCompile>
+    <ClCompile Include="satelliteDragon.cpp">
+      <Filter>Source Files\satellite</Filter>
+    </ClCompile>
+    <ClCompile Include="satelliteGPS.cpp">
+      <Filter>Source Files\satellite</Filter>
+    </ClCompile>
+    <ClCompile Include="satelliteHubble.cpp">
+      <Filter>Source Files\satellite</Filter>
+    </ClCompile>
+    <ClCompile Include="satelliteShip.cpp">
+      <Filter>Source Files\satellite</Filter>
+    </ClCompile>
+    <ClCompile Include="satelliteSputnik.cpp">
+      <Filter>Source Files\satellite</Filter>
+    </ClCompile>
+    <ClCompile Include="satelliteStarlink.cpp">
+      <Filter>Source Files\satellite</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="testSatellite.cpp">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+    <ClCompile Include="part.cpp">
+      <Filter>Source Files\satellite\part</Filter>
+    </ClCompile>
+    <ClCompile Include="partCrewDragonCenter.cpp">
+      <Filter>Source Files\satellite\part</Filter>
+    </ClCompile>
+    <ClCompile Include="partCrewDragonLeft.cpp">
+      <Filter>Source Files\satellite\part</Filter>
+    </ClCompile>
+    <ClCompile Include="partCrewDragonRight.cpp">
+      <Filter>Source Files\satellite\part</Filter>
+    </ClCompile>
+    <ClCompile Include="partGPSCenter.cpp">
+      <Filter>Source Files\satellite\part</Filter>
+    </ClCompile>
+    <ClCompile Include="partGPSLeft.cpp">
+      <Filter>Source Files\satellite\part</Filter>
+    </ClCompile>
+    <ClCompile Include="partGPSRight.cpp">
+      <Filter>Source Files\satellite\part</Filter>
+    </ClCompile>
+    <ClCompile Include="partHubbleComputer.cpp">
+      <Filter>Source Files\satellite\part</Filter>
+    </ClCompile>
+    <ClCompile Include="partHubbleLeft.cpp">
+      <Filter>Source Files\satellite\part</Filter>
+    </ClCompile>
+    <ClCompile Include="partHubbleRight.cpp">
+      <Filter>Source Files\satellite\part</Filter>
+    </ClCompile>
+    <ClCompile Include="partHubbleTelescope.cpp">
+      <Filter>Source Files\satellite\part</Filter>
+    </ClCompile>
+    <ClCompile Include="partStarlinkArray.cpp">
+      <Filter>Source Files\satellite\part</Filter>
+    </ClCompile>
+    <ClCompile Include="partStarlinkBody.cpp">
+      <Filter>Source Files\satellite\part</Filter>
+    </ClCompile>
+    <ClCompile Include="fragment.cpp">
+      <Filter>Source Files\satellite\part</Filter>
+    </ClCompile>
+    <ClCompile Include="velocity.cpp">
+      <Filter>Source Files\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="position.cpp">
+      <Filter>Source Files\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="angle.cpp">
+      <Filter>Source Files\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="acceleration.cpp">
+      <Filter>Source Files\physics</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="uiDraw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uiInteract.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test.h">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="testAcceleration.h">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="testAngle.h">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="testBullet.h">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="testFragment.h">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="testPart.h">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="testPosition.h">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="testSatellite.h">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="testSatelliteGPS.h">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="testSatelliteShip.h">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="testVelocity.h">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="satelliteStarlink.h">
+      <Filter>Header Files\satellite</Filter>
+    </ClInclude>
+    <ClInclude Include="satellite.h">
+      <Filter>Header Files\satellite</Filter>
+    </ClInclude>
+    <ClInclude Include="satelliteDragon.h">
+      <Filter>Header Files\satellite</Filter>
+    </ClInclude>
+    <ClInclude Include="satelliteGPS.h">
+      <Filter>Header Files\satellite</Filter>
+    </ClInclude>
+    <ClInclude Include="satelliteHubble.h">
+      <Filter>Header Files\satellite</Filter>
+    </ClInclude>
+    <ClInclude Include="satelliteShip.h">
+      <Filter>Header Files\satellite</Filter>
+    </ClInclude>
+    <ClInclude Include="satelliteSputnik.h">
+      <Filter>Header Files\satellite</Filter>
+    </ClInclude>
+    <ClInclude Include="part.h">
+      <Filter>Header Files\satellite\part</Filter>
+    </ClInclude>
+    <ClInclude Include="partCrewDragonCenter.h">
+      <Filter>Header Files\satellite\part</Filter>
+    </ClInclude>
+    <ClInclude Include="partCrewDragonLeft.h">
+      <Filter>Header Files\satellite\part</Filter>
+    </ClInclude>
+    <ClInclude Include="partCrewDragonRight.h">
+      <Filter>Header Files\satellite\part</Filter>
+    </ClInclude>
+    <ClInclude Include="partGPSCenter.h">
+      <Filter>Header Files\satellite\part</Filter>
+    </ClInclude>
+    <ClInclude Include="partGPSLeft.h">
+      <Filter>Header Files\satellite\part</Filter>
+    </ClInclude>
+    <ClInclude Include="partGPSRight.h">
+      <Filter>Header Files\satellite\part</Filter>
+    </ClInclude>
+    <ClInclude Include="partHubbleComputer.h">
+      <Filter>Header Files\satellite\part</Filter>
+    </ClInclude>
+    <ClInclude Include="partHubbleLeft.h">
+      <Filter>Header Files\satellite\part</Filter>
+    </ClInclude>
+    <ClInclude Include="partHubbleRight.h">
+      <Filter>Header Files\satellite\part</Filter>
+    </ClInclude>
+    <ClInclude Include="partHubbleTelescope.h">
+      <Filter>Header Files\satellite\part</Filter>
+    </ClInclude>
+    <ClInclude Include="partStarlinkArray.h">
+      <Filter>Header Files\satellite\part</Filter>
+    </ClInclude>
+    <ClInclude Include="partStarlinkBody.h">
+      <Filter>Header Files\satellite\part</Filter>
+    </ClInclude>
+    <ClInclude Include="projectile.h">
+      <Filter>Header Files\satellite</Filter>
+    </ClInclude>
+    <ClInclude Include="fragment.h">
+      <Filter>Header Files\satellite\part</Filter>
+    </ClInclude>
+    <ClInclude Include="velocity.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="position.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="angle.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="acceleration.h">
+      <Filter>Header Files\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="unitTest.h">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

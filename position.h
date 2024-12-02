@@ -53,6 +53,7 @@ public:
    void addMetersY(double dyMeters)      { setMetersY(getMetersY() + dyMeters);     }
    void addPixelsX(double dxPixels)      { setPixelsX(getPixelsX() + dxPixels);     }
    void addPixelsY(double dyPixels)      { setPixelsY(getPixelsY() + dyPixels);     }
+   void addPixels(double pixels, double directionRadians);
 
    void add(const Velocity& v, const Acceleration&, double time);
 

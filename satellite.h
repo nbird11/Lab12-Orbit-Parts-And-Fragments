@@ -49,7 +49,7 @@ public:
 
    virtual void move(double time);
    virtual void draw(ogstream& gout) = 0;
-   virtual void destroy(const std::vector<Satellite*>& satellites) = 0;
+   virtual void destroy(std::vector<Satellite*>& satellites) = 0;
    virtual void input(const Interface* pUI) {}
    
 protected:
@@ -79,7 +79,7 @@ public:
    ~SatelliteDerived() { }
 
    virtual void draw(ogstream& gout) { assert(false); }
-   virtual void destroy(const std::vector<Satellite*>& satellites) { assert(false); }
+   virtual void destroy(std::vector<Satellite*>& satellites) { assert(false); }
    virtual void input(const Interface* pUI) { assert(false); }
 };
 
@@ -102,6 +102,6 @@ public:
 
    virtual void move(double time) { assert(false); }
    virtual void draw(ogstream& gout) { assert(false); }
-   virtual void destroy(const std::vector<Satellite*>& satellites) { assert(false); }
+   virtual void destroy(std::vector<Satellite*>& satellites) { assert(false); }
    virtual void input(const Interface* pUI) { assert(false); }
 };

@@ -206,8 +206,8 @@ void ogstream :: flush()
 
 /************************************************************************
  * DRAW PROJECTILE
- * Draw a projectile on the screen at a given point.
- *   INPUT  pt     The location of the projectile
+ * Draw a Projectile on the screen at a given point.
+ *   INPUT  pt     The location of the Projectile
  *************************************************************************/
 void ogstream::drawProjectile(const Position& pt)
 {

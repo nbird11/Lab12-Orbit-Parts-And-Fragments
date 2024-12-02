@@ -31,5 +31,5 @@ public:
    ~CrewDragon() { }
 
    void draw(ogstream& gout) override;
-   void destroy(const std::vector<Satellite*>& satellites) override { assert(NOT_IMPLEMENTED); }
+   void destroy(std::vector<Satellite*>& satellites) override { assert(NOT_IMPLEMENTED); }
 };

@@ -19,3 +19,18 @@ public:
       report("GPS");
    }
 };
+
+class TestGPSCenter : public UnitTest
+{
+
+};
+
+class TestGPSLeft : public UnitTest
+{
+
+};
+
+class TestGPSRight : public UnitTest
+{
+
+};

@@ -27,8 +27,6 @@
 using namespace std;
 
 #define PI           3.14159265358979
-#define ORBITAL_VEL  3100            // m/s DELETEME
-
 
 /*************************************************************************
  * Demo
