@@ -22,6 +22,7 @@ class Part : public Satellite
 public:
    friend TestPart;
 
+   Part() : Satellite() { }
    Part(const Position& pos, const Velocity& vel);
    
    virtual void destroy(std::vector<Satellite*>& satellites) override = 0;

@@ -12,8 +12,12 @@
 #include "testAngle.h"
 #include "testPosition.h"
 #include "testSatellite.h"
+#include "testSatelliteCrewDragon.h"
 #include "testSatelliteGPS.h"
+#include "testSatelliteHubble.h"
 #include "testSatelliteShip.h"
+#include "testSatelliteStarlink.h"
+#include "testSetelliteSputnik.h"
 #include "testVelocity.h"
 
 #ifdef _WIN32
@@ -39,7 +43,30 @@ void testRunner()
    TestVelocity().run();
    TestAcceleration().run();
    TestAngle().run();
+
    TestSatellite().run();
+
+   TestSputnik().run();
+
    TestGPS().run();
+   TestGPSCenter().run();
+   TestGPSLeft().run();
+   TestGPSRight().run();
+
+   TestHubble().run();
+   TestHubbleTelescope().run();
+   TestHubbleLeft().run();
+   TestHubbleRight().run();
+   TestHubbleComputer().run();
+
+   TestCrewDragon().run();
+   TestCrewDragonCenter().run();
+   TestCrewDragonLeft().run();
+   TestCrewDragonRight().run();
+
+   TestStarlink().run();
+   TestStarlinkArray().run();
+   TestStarlinkBody().run();
+
    TestShip().run();
 }

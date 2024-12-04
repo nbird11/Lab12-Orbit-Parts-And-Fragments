@@ -24,6 +24,7 @@ class Fragment : public Part
 public:
    friend TestFragment;
 
+   Fragment() : Part(), age(0) { }
    Fragment(const Position& pos, const Velocity& vel) : Part(pos, vel), age(0) { }
    void destroy(std::vector<Satellite*>& satellites) override { }
    void draw(ogstream& gout);

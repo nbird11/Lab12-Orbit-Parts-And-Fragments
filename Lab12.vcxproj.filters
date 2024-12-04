@@ -254,6 +254,18 @@
     <ClInclude Include="unitTest.h">
       <Filter>Header Files\test</Filter>
     </ClInclude>
+    <ClInclude Include="testSatelliteHubble.h">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="testSatelliteCrewDragon.h">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="testSatelliteStarlink.h">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
+    <ClInclude Include="testSetelliteSputnik.h">
+      <Filter>Header Files\test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

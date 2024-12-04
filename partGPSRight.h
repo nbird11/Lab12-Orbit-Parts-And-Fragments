@@ -23,9 +23,8 @@ class GPSRight : public Part
 public:
    friend TestGPSRight;
 
-   GPSRight(const Position& pos, const Velocity& vel) : Part(pos, vel) {
-      this->radius = 8;
-   }
+   GPSRight() : Part() { }
+   GPSRight(const Position& pos, const Velocity& vel) : Part(pos, vel) { this->radius = 8; }
 
    void destroy(std::vector<Satellite*>& satellites) override;
    void draw(ogstream& gout) override;

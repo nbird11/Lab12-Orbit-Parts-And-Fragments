@@ -32,5 +32,4 @@ void GPS::destroy(std::vector<Satellite*>& satellites)
    satellites.push_back(new GPSRight(pos, velocity));
    satellites.push_back(new Fragment(pos, velocity));
    satellites.push_back(new Fragment(pos, velocity));
-
 }

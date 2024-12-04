@@ -24,6 +24,7 @@ class HubbleTelescope :
 public:
    friend TestHubbleTelescope;
 
+   HubbleTelescope() : Part() {}
    HubbleTelescope(const Position& pos, const Velocity& vel) : Part(pos, vel) { this->radius = 10; }
 
    void destroy(std::vector<Satellite*>& satellites) override;

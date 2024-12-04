@@ -7,8 +7,11 @@
  *    The unbroken Sputnik derived class
  ************************************************************************/
 
+#include "fragment.h"
+#include "satellite.h"
 #include "satelliteSputnik.h"
 #include "uiDraw.h"
+#include <vector>
 
 /*********************************************
  * Sputnik : DRAW
@@ -17,4 +20,12 @@
 void Sputnik::draw(ogstream& gout)
 {
    gout.drawSputnik(pos, direction.getDegrees());
+}
+
+void Sputnik::destroy(std::vector<Satellite*>& satellites)
+{
+   satellites.push_back(new Fragment(pos, velocity));
+   satellites.push_back(new Fragment(pos, velocity));
+   satellites.push_back(new Fragment(pos, velocity));
+   satellites.push_back(new Fragment(pos, velocity));
 }

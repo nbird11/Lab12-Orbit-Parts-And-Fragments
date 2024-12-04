@@ -23,6 +23,7 @@ class GPSLeft : public Part
 public:
    friend TestGPSLeft;
 
+   GPSLeft() : Part() { }
    GPSLeft(const Position& pos, const Velocity& vel) : Part(pos, vel) { this->radius = 8; }
 
    void destroy(std::vector<Satellite*>& satellites) override;

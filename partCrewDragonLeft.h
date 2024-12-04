@@ -24,6 +24,7 @@ class CrewDragonLeft :
 public:
    friend TestCrewDragonLeft;
 
+   CrewDragonLeft() : Part() {}
    CrewDragonLeft(const Position& pos, const Velocity& vel) : Part(pos, vel) { this->radius = 6; }
 
    void destroy(std::vector<Satellite*>& satellites) override;

@@ -23,6 +23,7 @@ class StarlinkArray : public Part
 public:
    friend TestStarlinkArray;
 
+    StarlinkArray() : Part() {}
     StarlinkArray(const Position& pos, const Velocity& vel) : Part(pos, vel) { this->radius = 4; }
 
    void destroy(std::vector<Satellite*>& satellites);
