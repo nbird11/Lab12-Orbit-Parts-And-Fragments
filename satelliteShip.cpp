@@ -50,11 +50,19 @@ void Ship::input(const Interface* pUI, double time, std::vector<Satellite*>& sat
    move(time);
 }
 
+/*****************************************************
+ * Ship : FIRE
+ *  Fires (spawns) a projectile in direction ship is facing
+ *****************************************************/
 void Ship::fire(std::vector<Satellite*>& satellites)
 {
    satellites.push_back(new Projectile(*this));
 }
 
+/*****************************************************
+ * Ship : MOVE
+ *  Move the ship, add thrust if thrusting
+ *****************************************************/
 void Ship::move(double time)
 {
    double thrust = 2.0;  // m/s^2

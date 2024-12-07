@@ -31,7 +31,6 @@ public:
 
    void input(const Interface* pUI, double time, std::vector<Satellite*>& satellites);
    void fire(std::vector<Satellite*>& satellites);
-   //void addThrust(double time);
    void move(double time) override;
 
    void draw(ogstream& gout) override;

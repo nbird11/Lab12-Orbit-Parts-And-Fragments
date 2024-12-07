@@ -16,8 +16,6 @@
 #include <vector>
 #pragma once
 
-//#define NOT_IMPLEMENTED false
-
 class TestSatellite;
 class TestGPS;
 class TestShip;

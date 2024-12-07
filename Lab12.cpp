@@ -4,11 +4,14 @@
  * 2. Assignment Name:
  *      Lab 12: Orbit Simulator
  * 3. Assignment Description:
- *      Implement the code and unit tests for all Satellites.
+ *      Implement the code and unit tests for fragments and collisions.
  * 4. What was the hardest part? Be as specific as possible.
- *      ??
+ *      Collisions
  * 5. How long did it take for you to complete the assignment?
- *      ??
+ *      Part base class: 23 minutes
+ *      All the part classes, Fragment class, Fragment and part generation code: 68 minutes
+ *      Bullet class, bullet generation: 60 minutes
+ *      Collision detection: 150 minutes
  *****************************************************************/
 
 #include "position.h"   // for POSITION
@@ -30,12 +33,6 @@ using namespace std;
 
 #define PI           3.14159265358979
 #define RADIUS_EARTH 6378000.0  // meters
-
-
-// struct star {
-//    Position pos;
-//    unsigned char phase;
-// };
 
 /*************************************************************************
  * Demo
@@ -112,7 +109,7 @@ public:
             ++itSat;
          }
       }
-      if (ship != nullptr && ship->isDead())
+      if (ship !=  nullptr && ship->isDead())
       {
          delete ship;
          ship = nullptr;
