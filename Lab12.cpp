@@ -79,7 +79,6 @@ public:
                   (*it1)->kill();
                   (*it2)->kill();
                }
-
             }
          }
          // If the sattelite is in the area of the earth, kill it.
@@ -109,7 +108,7 @@ public:
             ++itSat;
          }
       }
-      if (ship !=  nullptr && ship->isDead())
+      if (ship != nullptr && ship->isDead())
       {
          delete ship;
          ship = nullptr;
