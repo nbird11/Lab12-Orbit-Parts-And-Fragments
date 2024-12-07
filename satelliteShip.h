@@ -9,7 +9,6 @@
 #pragma once
 #include "satellite.h"
 #include "uiInteract.h"
-#include <cassert>
 #include <vector>
 
 class Position;
@@ -30,13 +29,14 @@ public:
    Ship();
    ~Ship() { }
 
-   void input(const Interface* pUI, double time);
-   void addThrust(double time);
+   void input(const Interface* pUI, double time, std::vector<Satellite*>& satellites);
+   void fire(std::vector<Satellite*>& satellites);
+   //void addThrust(double time);
    void move(double time) override;
-   //void move(double time) override;
 
    void draw(ogstream& gout) override;
-   void destroy(std::vector<Satellite*>& satellites) override { assert(NOT_IMPLEMENTED); }
+   void destroy(std::vector<Satellite*>& satellites) override { }
+
 private:
    bool isThrusting;
 };

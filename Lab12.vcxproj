@@ -185,6 +185,7 @@
     <ClInclude Include="satelliteShip.h" />
     <ClInclude Include="satelliteSputnik.h" />
     <ClInclude Include="satelliteStarlink.h" />
+    <ClInclude Include="star.h" />
     <ClInclude Include="test.h" />
     <ClInclude Include="testAcceleration.h" />
     <ClInclude Include="testAngle.h" />

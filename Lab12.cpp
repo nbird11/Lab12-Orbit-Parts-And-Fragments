@@ -19,14 +19,23 @@
 #include "satelliteShip.h"
 #include "satelliteSputnik.h"
 #include "satelliteStarlink.h"
+#include "star.h"
 #include "test.h"
 #include "uiDraw.h"     // for RANDOM and DRAW*
 #include "uiInteract.h" // for INTERFACE
 #include "velocity.h"
+#include <cstdlib>
 #include <vector>
 using namespace std;
 
 #define PI           3.14159265358979
+#define RADIUS_EARTH 6378000.0  // meters
+
+
+// struct star {
+//    Position pos;
+//    unsigned char phase;
+// };
 
 /*************************************************************************
  * Demo
@@ -37,7 +46,8 @@ class Demo
 public:
    Demo(Position ptUpperRight) :
       ptUpperRight(ptUpperRight),
-      timePerFrame(24.0 /*hoursPerDay*/ * 60.0 /*minutesPerHour*/ / 30.0 /*frameRate*/)
+      timePerFrame(24.0 /*hoursPerDay*/ * 60.0 /*minutesPerHour*/ / 30.0 /*frameRate*/),
+      ship(new Ship)
    {
       satellites.push_back(new Sputnik(Position(-36515095.13, 21082000.0), Velocity(2050.0, 2684.68)));
 
@@ -48,26 +58,78 @@ public:
       satellites.push_back(new GPS(Position(-23001634.72, -13280000.0), Velocity(1940.00, -3360.18)));
       satellites.push_back(new GPS(Position(-23001634.72, 13280000.0), Velocity(-1940.00, -3360.18)));
 
-      satellites.push_back(new Hubble(Position(0.0, 42164000.0), Velocity(-3100, 0.0)));
+      satellites.push_back(new Hubble(Position(0.0, -42164000.0), Velocity(-3100, 0.0)));
 
       satellites.push_back(new CrewDragon(Position(0.0, 8000000.0), Velocity(-7900.0, 0.0)));
 
       satellites.push_back(new Starlink(Position(0.0, -13020000.0), Velocity(5800.0, 0.0)));
 
-      ptStar.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
-      ptStar.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
+      angleEarth = 0;
+   }
 
-      angleEarth = 0.0;
-      phaseStar = 0;
+   void handleCollisions()
+   {
+      for (auto it1 = satellites.begin(); next(it1) != satellites.end(); it1++)
+      {
+         for (auto it2 = next(it1); it2 != satellites.end(); it2++)
+         {
+            // Sattelite collition
+            if (!(*it1)->isDead() && !(*it2)->isDead())
+            {
+               if (abs((*it1)->getPosition().getPixelsX() - (*it2)->getPosition().getPixelsX()) <= ((*it1)->getRadius() + (*it2)->getRadius()) &&
+                   abs((*it1)->getPosition().getPixelsY() - (*it2)->getPosition().getPixelsY()) <= ((*it1)->getRadius() + (*it2)->getRadius()))
+               {
+                  (*it1)->kill();
+                  (*it2)->kill();
+               }
+
+            }
+         }
+         // If the sattelite is in the area of the earth, kill it.
+         if (computeDistance(Position(0.0, 0.0), (*it1)->getPosition()) <= RADIUS_EARTH)
+         {
+              (*it1)->kill();
+         }
+         if (ship != nullptr)
+         {
+            if (computeDistance(Position(0.0, 0.0), ship->getPosition()) <= RADIUS_EARTH)
+            {
+               ship->kill();
+            }
+         }
+      }
+
+      vector<Satellite*> newSats;
+      for (auto itSat = satellites.begin(); itSat != satellites.end(); )
+      {
+         if ((*itSat)->isDead())
+         {
+            (*itSat)->destroy(newSats);
+            itSat = satellites.erase(itSat);
+         }
+         else
+         {
+            ++itSat;
+         }
+      }
+      if (ship != nullptr && ship->isDead())
+      {
+         delete ship;
+         ship = nullptr;
+      }
+      if (!newSats.empty())
+      {
+         satellites.insert(satellites.end(), make_move_iterator(newSats.begin()), make_move_iterator(newSats.end()));
+      }
    }
 
    vector<Satellite*> satellites;
-   Ship ship;
+   Ship* ship;
    Position ptStar;
    Position ptUpperRight;
+   Stars stars;
 
    double timePerFrame;
-   unsigned char phaseStar;
    double angleEarth;
 };
 
@@ -89,19 +151,24 @@ void callBack(const Interface* pUI, void* p)
    //
 
    // rotate the earth
-   double rpf = -(2 * PI / 30.0 /*frameRate*/) * (pDemo->timePerFrame*30.0 / 86400 /*secondsPerDay*/);
+   double rpf = -(2 * PI / 30.0 /*frameRate*/) * (pDemo->timePerFrame * 30.0 / 86400 /*secondsPerDay*/);
 
    pDemo->angleEarth += rpf;
-   pDemo->phaseStar++;
 
    // 
    // move
    //
-   pDemo->ship.input(pUI, pDemo->timePerFrame);
+   if (pDemo->ship != nullptr)
+      pDemo->ship->input(pUI, pDemo->timePerFrame, pDemo->satellites);
    for (Satellite* sat : pDemo->satellites)
    {
       sat->move(pDemo->timePerFrame);
    }
+
+   //
+   // collide
+   //
+   pDemo->handleCollisions();
 
    //
    // draw everything
@@ -110,10 +177,10 @@ void callBack(const Interface* pUI, void* p)
 
    for (Satellite* sat : pDemo->satellites)
       sat->draw(gout);
-   pDemo->ship.draw(gout);
+   if (pDemo->ship != nullptr)
+      pDemo->ship->draw(gout);
 
-   // draw a single star
-   gout.drawStar(pDemo->ptStar, pDemo->phaseStar);
+   pDemo->stars.draw(gout);
 
    // draw the earth
    Position pt;
@@ -146,11 +213,12 @@ int main(int argc, char** argv)
    ptUpperRight.setPixelsX(1000.0);
    ptUpperRight.setPixelsY(1000.0);
    Interface ui(0, NULL,
-      "Demo",   /* name on the window */
-      ptUpperRight);
+                "Demo",   /* name on the window */
+                ptUpperRight);
 
    // Initialize the demo
    Demo demo(ptUpperRight);
+   demo.stars.initializeStars(500, ptUpperRight);
 
    // set everything into action
    ui.run(callBack, &demo);

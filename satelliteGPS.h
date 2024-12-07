@@ -9,7 +9,6 @@
 
 #pragma once
 #include "satellite.h"
-#include <cassert>
 #include <vector>
 
 class Position;

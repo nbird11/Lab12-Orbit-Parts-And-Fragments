@@ -7,10 +7,10 @@
  *    Left part of the crew dragon.
  ************************************************************************/
 
+#include "fragment.h"
 #include "partCrewDragonLeft.h"
 #include "satellite.h"
 #include "uiDraw.h"
-#include "fragment.h"
 #include <vector>
 
 void CrewDragonLeft::destroy(std::vector<Satellite*>& satellites)

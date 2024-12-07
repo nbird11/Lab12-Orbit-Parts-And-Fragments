@@ -12,7 +12,6 @@
 #include "position.h"
 #include "satellite.h"
 #include "velocity.h"
-#include <cassert>
 #include <cmath>
 
 // Constants for calculating gravity.
@@ -113,6 +112,8 @@ void Satellite::move(double time)
    velocity.add(accel, time / 2.0);
    pos.add(velocity, accel, time);
    velocity.add(accel, time / 2.0);
+
+   direction.add(angularVelocity);
 
    /*
    Figure out the acceleration of Thrust

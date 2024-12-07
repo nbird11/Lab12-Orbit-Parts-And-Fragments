@@ -16,10 +16,11 @@
 #include <vector>
 #pragma once
 
-#define NOT_IMPLEMENTED false
+//#define NOT_IMPLEMENTED false
 
 class TestSatellite;
 class TestGPS;
+class TestShip;
 
 /***************************************************
  * SATELLITE
@@ -30,6 +31,7 @@ class Satellite
 public:
    friend TestSatellite;
    friend TestGPS;
+   friend TestShip;
 
    // Constructors
    Satellite() : pos(Position()), velocity(Velocity()), direction(Angle()),

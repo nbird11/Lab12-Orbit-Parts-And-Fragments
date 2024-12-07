@@ -8,12 +8,14 @@
  ************************************************************************/
 
 #include "acceleration.h"
+#include "projectile.h"
 #include "satellite.h"
 #include "satelliteShip.h"
 #include "uiDraw.h"
 #include "uiInteract.h"
 #include "velocity.h"
 #include <cmath>
+#include <vector>
 
 /*****************************************************
  * Ship : CONSTRUCTOR
@@ -32,7 +34,7 @@ Ship::Ship() : Satellite()
  * Ship : INPUT
  *  Changes orientation of the ship from keyboard input
  *****************************************************/
-void Ship::input(const Interface* pUI, double time)
+void Ship::input(const Interface* pUI, double time, std::vector<Satellite*>& satellites)
 {
    if (pUI->isRight())
    {
@@ -42,8 +44,15 @@ void Ship::input(const Interface* pUI, double time)
    {
       direction.add(-0.1);
    }
+   if (pUI->isSpace())
+      fire(satellites);
    isThrusting = pUI->isDown();
    move(time);
+}
+
+void Ship::fire(std::vector<Satellite*>& satellites)
+{
+   satellites.push_back(new Projectile(*this));
 }
 
 void Ship::move(double time)
