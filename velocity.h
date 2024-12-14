@@ -16,7 +16,23 @@ class TestVelocity;
 class TestAcceleration;
 class TestSatellite;
 class TestShip;
+class TestHubble;
+class TestGPS;
+class TestStarlink;
+class TestCrewDragon;
 class TestCrewDragonCenter;
+class TestCrewDragonLeft;
+class TestCrewDragonRight;
+class TestGPSCenter;
+class TestGPSLeft;
+class TestGPSRight;
+class TestHubbleComputer;
+class TestHubbleLeft;
+class TestHubbleRight;
+class TestHubbleTelescope;
+class TestSputnik;
+class TestStarlinkBody;
+class TestStarlinkArray;
 
 // for add()
 class Acceleration;
@@ -33,7 +49,23 @@ class Velocity
    friend TestVelocity;
    friend TestSatellite;
    friend TestShip;
+   friend TestHubble;
+   friend TestGPS;
+   friend TestStarlink;
+   friend TestCrewDragon;
    friend TestCrewDragonCenter;
+   friend TestCrewDragonLeft;
+   friend TestCrewDragonRight;
+   friend TestGPSCenter;
+   friend TestGPSLeft;
+   friend TestGPSRight;
+   friend TestHubbleComputer;
+   friend TestHubbleLeft;
+   friend TestHubbleRight;
+   friend TestHubbleTelescope;
+   friend TestSputnik;
+   friend TestStarlinkBody;
+   friend TestStarlinkArray;
 
 public:
    // constructors

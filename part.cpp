@@ -20,7 +20,8 @@ Part::Part(const Position& pos, const Velocity& vel) : Satellite(pos, vel)
    this->direction.setDegrees(random(0, 360));
    // TODO: This is accurate to the description, but looks too fast.
    /*+ random(5000.0, 9000.0)*/
-   this->velocity.set(this->direction, this->velocity.getSpeed());
+   this->velocity.set(this->direction, this->velocity.getSpeed() + 
+      random(5000.0, 9000.0));
    // TODO: 4px is accurate to the description, but may be too close.
    this->pos.addPixels(20, this->direction.getRadians());
 }

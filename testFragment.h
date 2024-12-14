@@ -21,8 +21,9 @@ public:
    }
 private:
    /************************************
-    * MOVE : THRUST
-    *  Move the ship while thrusting
+    * name:    DEFAULT CONSTRUCTOR
+    * input:   nothing
+    * output:  pos=(0, 0))
     ************************************/
    void move_thrust()
    {  // setup

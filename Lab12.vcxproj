@@ -189,7 +189,7 @@
     <ClInclude Include="test.h" />
     <ClInclude Include="testAcceleration.h" />
     <ClInclude Include="testAngle.h" />
-    <ClInclude Include="testBullet.h" />
+    <ClInclude Include="testProjectile.h" />
     <ClInclude Include="testFragment.h" />
     <ClInclude Include="testPart.h" />
     <ClInclude Include="testPosition.h" />
