@@ -1,11 +1,11 @@
-/***********************************************************************
+/******************************************************************************
  * Header File:
  *    Ship
  * Author:
  *    Nathan Bird, Jared Davey, Brock Hoskins
  * Summary:
  *    The Ship controlled by the player
- ************************************************************************/
+ *****************************************************************************/
 #pragma once
 #include "satellite.h"
 #include "uiInteract.h"
@@ -17,10 +17,10 @@ class ogstream;
 
 class TestShip;
 
-/***************************************************
+/******************************************************************************
  * Ship
  * The Starlink type derived from Satellite
- ***************************************************/
+ *****************************************************************************/
 class Ship : public Satellite
 {
 public:
@@ -29,7 +29,9 @@ public:
    Ship();
    ~Ship() { }
 
-   void input(const Interface* pUI, double time, std::vector<Satellite*>& satellites);
+   void input(const Interface* pUI);
+   void setFiring() { firing = true; }
+   bool isFiring() const { return firing; }
    void fire(std::vector<Satellite*>& satellites);
    void move(double time) override;
 
@@ -38,5 +40,6 @@ public:
 
 private:
    bool isThrusting;
+   bool firing;
 };
 

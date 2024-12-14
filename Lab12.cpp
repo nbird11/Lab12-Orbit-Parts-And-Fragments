@@ -1,4 +1,4 @@
-/*************************************************************
+/******************************************************************************
  * 1. Name:
  *      Nathan Bird, Jared Davey, Brock Hoskins
  * 2. Assignment Name:
@@ -9,10 +9,11 @@
  *      Collisions
  * 5. How long did it take for you to complete the assignment?
  *      Part base class: 23 minutes
- *      All the part classes, Fragment class, Fragment and part generation code: 68 minutes
+ *      All the part classes, Fragment class, Fragment and 
+ *         part generation code: 68 minutes
  *      Bullet class, bullet generation: 60 minutes
  *      Collision detection: 150 minutes
- *****************************************************************/
+ *****************************************************************************/
 
 #include "position.h"   // for POSITION
 #include "satellite.h"
@@ -34,32 +35,44 @@ using namespace std;
 #define PI           3.14159265358979
 #define RADIUS_EARTH 6378000.0  // meters
 
-/*************************************************************************
+/******************************************************************************
  * Demo
  * Test structure to capture the LM that will move around the screen
- *************************************************************************/
+ *****************************************************************************/
 class Demo
 {
 public:
    Demo(Position ptUpperRight) :
       ptUpperRight(ptUpperRight),
-      timePerFrame(24.0 /*hoursPerDay*/ * 60.0 /*minutesPerHour*/ / 30.0 /*frameRate*/),
-      ship(new Ship)
+      timePerFrame(24.0 /*hoursPerDay*/ * 60.0 /*minutesPerHour*/ / 
+         30.0 /*frameRate*/)
    {
-      satellites.push_back(new Sputnik(Position(-36515095.13, 21082000.0), Velocity(2050.0, 2684.68)));
+      satellites.push_back(new Ship);
 
-      satellites.push_back(new GPS(Position(0.0, 26560000.0), Velocity(-3880.0, 0.0)));
-      satellites.push_back(new GPS(Position(0.0, -26560000.0), Velocity(3880.0, 0.0)));
-      satellites.push_back(new GPS(Position(23001634.72, 13280000.0), Velocity(-1940.00, 3360.18)));
-      satellites.push_back(new GPS(Position(23001634.72, -13280000.0), Velocity(1940.00, 3360.18)));
-      satellites.push_back(new GPS(Position(-23001634.72, -13280000.0), Velocity(1940.00, -3360.18)));
-      satellites.push_back(new GPS(Position(-23001634.72, 13280000.0), Velocity(-1940.00, -3360.18)));
+      satellites.push_back(new Sputnik(Position(-36515095.13, 21082000.0), 
+         Velocity(2050.0, 2684.68)));
 
-      satellites.push_back(new Hubble(Position(0.0, -42164000.0), Velocity(-3100, 0.0)));
+      satellites.push_back(new GPS(Position(0.0, 26560000.0), 
+         Velocity(-3880.0, 0.0)));
+      satellites.push_back(new GPS(Position(0.0, -26560000.0), 
+         Velocity(3880.0, 0.0)));
+      satellites.push_back(new GPS(Position(23001634.72, 13280000.0), 
+         Velocity(-1940.00, 3360.18)));
+      satellites.push_back(new GPS(Position(23001634.72, -13280000.0), 
+         Velocity(1940.00, 3360.18)));
+      satellites.push_back(new GPS(Position(-23001634.72, -13280000.0), 
+         Velocity(1940.00, -3360.18)));
+      satellites.push_back(new GPS(Position(-23001634.72, 13280000.0), 
+         Velocity(-1940.00, -3360.18)));
 
-      satellites.push_back(new CrewDragon(Position(0.0, 8000000.0), Velocity(-7900.0, 0.0)));
+      satellites.push_back(new Hubble(Position(0.0, -42164000.0), 
+         Velocity(-3100, 0.0)));
 
-      satellites.push_back(new Starlink(Position(0.0, -13020000.0), Velocity(5800.0, 0.0)));
+      satellites.push_back(new CrewDragon(Position(0.0, 8000000.0), 
+         Velocity(-7900.0, 0.0)));
+
+      satellites.push_back(new Starlink(Position(0.0, -13020000.0), 
+         Velocity(5800.0, 0.0)));
 
       angleEarth = 0;
    }
@@ -73,8 +86,12 @@ public:
             // Sattelite collition
             if (!(*it1)->isDead() && !(*it2)->isDead())
             {
-               if (abs((*it1)->getPosition().getPixelsX() - (*it2)->getPosition().getPixelsX()) <= ((*it1)->getRadius() + (*it2)->getRadius()) &&
-                   abs((*it1)->getPosition().getPixelsY() - (*it2)->getPosition().getPixelsY()) <= ((*it1)->getRadius() + (*it2)->getRadius()))
+               if (abs((*it1)->getPosition().getPixelsX() - 
+                  (*it2)->getPosition().getPixelsX()) <= ((*it1)->getRadius() +
+                  (*it2)->getRadius()) &&
+                  abs((*it1)->getPosition().getPixelsY() - 
+                  (*it2)->getPosition().getPixelsY()) <= ((*it1)->getRadius() +
+                  (*it2)->getRadius()))
                {
                   (*it1)->kill();
                   (*it2)->kill();
@@ -82,16 +99,10 @@ public:
             }
          }
          // If the sattelite is in the area of the earth, kill it.
-         if (computeDistance(Position(0.0, 0.0), (*it1)->getPosition()) <= RADIUS_EARTH)
+         if (computeDistance(Position(0.0, 0.0), 
+            (*it1)->getPosition()) <= RADIUS_EARTH)
          {
               (*it1)->kill();
-         }
-         if (ship != nullptr)
-         {
-            if (computeDistance(Position(0.0, 0.0), ship->getPosition()) <= RADIUS_EARTH)
-            {
-               ship->kill();
-            }
          }
       }
 
@@ -108,19 +119,15 @@ public:
             ++itSat;
          }
       }
-      if (ship != nullptr && ship->isDead())
-      {
-         delete ship;
-         ship = nullptr;
-      }
       if (!newSats.empty())
       {
-         satellites.insert(satellites.end(), make_move_iterator(newSats.begin()), make_move_iterator(newSats.end()));
+         satellites.insert(satellites.end(), 
+            make_move_iterator(newSats.begin()), 
+            make_move_iterator(newSats.end()));
       }
    }
 
    vector<Satellite*> satellites;
-   Ship* ship;
    Position ptStar;
    Position ptUpperRight;
    Stars stars;
@@ -147,18 +154,32 @@ void callBack(const Interface* pUI, void* p)
    //
 
    // rotate the earth
-   double rpf = -(2 * PI / 30.0 /*frameRate*/) * (pDemo->timePerFrame * 30.0 / 86400 /*secondsPerDay*/);
+   double rpf = -(2 * PI / 30.0 /*frameRate*/) * 
+      (pDemo->timePerFrame * 30.0 / 86400 /*secondsPerDay*/);
 
    pDemo->angleEarth += rpf;
 
    // 
    // move
    //
-   if (pDemo->ship != nullptr)
-      pDemo->ship->input(pUI, pDemo->timePerFrame, pDemo->satellites);
-   for (Satellite* sat : pDemo->satellites)
+   for (auto it = pDemo->satellites.begin(); it != pDemo->satellites.end(); ++it)
    {
-      sat->move(pDemo->timePerFrame);
+      Satellite *sat = *it;
+      if (!sat->isDead())
+      {
+         sat->input(pUI);
+         sat->move(pDemo->timePerFrame);
+      }
+   }
+
+   //
+   // fire
+   //
+   if (typeid(*(pDemo->satellites[0])) == typeid(Ship))
+   {
+      Ship* ship = dynamic_cast<Ship*>(pDemo->satellites[0]);
+      if (ship->isFiring())
+         ship->fire(pDemo->satellites);
    }
 
    //
@@ -173,8 +194,6 @@ void callBack(const Interface* pUI, void* p)
 
    for (Satellite* sat : pDemo->satellites)
       sat->draw(gout);
-   if (pDemo->ship != nullptr)
-      pDemo->ship->draw(gout);
 
    pDemo->stars.draw(gout);
 
@@ -200,7 +219,6 @@ int WINAPI wWinMain(
 int main(int argc, char** argv)
 #endif // !_WIN32
 {
-
    testRunner();
 
    // Initialize OpenGL
@@ -218,7 +236,6 @@ int main(int argc, char** argv)
 
    // set everything into action
    ui.run(callBack, &demo);
-
 
    return 0;
 }

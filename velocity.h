@@ -1,13 +1,14 @@
-/***********************************************************************
+/******************************************************************************
  * Header File:
  *    VELOCITY
  * Author:
  *    Nathan Bird, Brock Hoskins, Jared Davey
  * Summary:
  *    Everything we need to know about speed
- ************************************************************************/
+ *****************************************************************************/
 
 #pragma once
+#include <cassert>
 
 // for unit tests
 class TestPosition;
@@ -15,15 +16,16 @@ class TestVelocity;
 class TestAcceleration;
 class TestSatellite;
 class TestShip;
+class TestCrewDragonCenter;
 
 // for add()
 class Acceleration;
 class Angle;
 
-/*********************************************
+/******************************************************************************
  * Velocity
  * I feel the need, the need for speed
- *********************************************/
+ *****************************************************************************/
 class Velocity
 {
    // for unit tests
@@ -31,6 +33,7 @@ class Velocity
    friend TestVelocity;
    friend TestSatellite;
    friend TestShip;
+   friend TestCrewDragonCenter;
 
 public:
    // constructors
@@ -66,13 +69,12 @@ private:
    double dy;           // verticacl velocity
 };
 
-#include <cassert>
-/*********************************************
+/******************************************************************************
  * VelocityDummy
  * A Dummy double for velocity. This does nothing but assert.
  * Stubs will be derived from this for the purpose of making
  * isolated unit tests.
- *********************************************/
+ *****************************************************************************/
 class VelocityDummy : public Velocity
 {
 public:

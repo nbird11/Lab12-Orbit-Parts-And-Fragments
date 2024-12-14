@@ -5,7 +5,7 @@
  *    Brock Hoskins, Jared Davey, Nathan Bird
  * Summary:
  *    All the unit tests for ANGLE
- ************************************************************************/
+ *****************************************************************************/
 
 #pragma once
 
@@ -15,7 +15,7 @@
 /*******************************
  * TEST ANGLE
  * A friend class for Angle which contains the Angle unit tests
- ********************************/
+ *****************************************************************************/
 class TestAngle : public UnitTest
 {
 public:

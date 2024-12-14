@@ -9,6 +9,8 @@
 #pragma once
 
 #include "fragment.h"
+#include "position.h"
+#include "velocity.h"
 #include "partCrewDragonCenter.h"
 #include "partCrewDragonLeft.h"
 #include "partCrewDragonRight.h"
@@ -67,13 +69,22 @@ private:
       vector<Satellite*> sats;
       CrewDragonCenter crew_dragon_center;
 
+      Position parentPos = crew_dragon_center.pos;
+      Velocity parentVelocity = crew_dragon_center.velocity;
+
       // EXERCISE
       crew_dragon_center.destroy(sats);
 
       // VERIFY
       assertEquals(sats.size(), 4);
-      for (auto sat : sats) // Check to see if they're all Fragments
+      for (auto sat : sats)
+      {
          assertUnit(typeid(*(sat)) == typeid(Fragment));
+         assertUnit(sat->pos.x != parentPos.x);
+         assertUnit(sat->pos.y != parentPos.y);
+         assertUnit(sat->velocity.dx != parentVelocity.dx);
+         assertUnit(sat->velocity.dy != parentVelocity.dy);
+      }
 
       // TEARDOWN
       for (auto sat : sats)

@@ -1,11 +1,11 @@
-/***********************************************************************
+/******************************************************************************
  * Header File:
  *    ACCELERATION
  * Author:
  *    Nathan Bird, Brock Hoskins, Jared Davey
  * Summary:
  *    Everything we need to know about acceleration
- ************************************************************************/
+ *****************************************************************************/
 
 
 #pragma once
@@ -17,10 +17,10 @@ class TestVelocity;
 class TestPosition;
 class TestLander;
 
-/*********************************************
+/******************************************************************************
  * Acceleration
  * Let's get moving
- *********************************************/
+ *****************************************************************************/
 class Acceleration
 {
    friend TestPosition;
@@ -32,7 +32,8 @@ public:
    // constructors
    Acceleration() : ddx(0.0), ddy(0.0) { }
    Acceleration(double ddx, double ddy) : ddx(ddx), ddy(ddy) { }
-   Acceleration(const Angle& a, double magnitude) : Acceleration() { set(a, magnitude); }
+   Acceleration(const Angle& a, double magnitude) : Acceleration() 
+      { set(a, magnitude); }
 
    // getters
    double getDDX()   const { return ddx; }

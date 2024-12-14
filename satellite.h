@@ -1,11 +1,11 @@
-/***********************************************************************
+/******************************************************************************
  * Header File:
  *    Satellite
  * Author:
  *    Nathan Bird, Jared Davey, Brock Hoskins
  * Summary:
  *    The base class for all orbital objects
- ************************************************************************/
+ *****************************************************************************/
 
 #include "angle.h"
 #include "position.h"
@@ -19,22 +19,25 @@
 class TestSatellite;
 class TestGPS;
 class TestShip;
+class TestCrewDragonCenter;
 
-/***************************************************
+/******************************************************************************
  * SATELLITE
  * The abstract satellite type
- ***************************************************/
+ *****************************************************************************/
 class Satellite
 {
 public:
    friend TestSatellite;
    friend TestGPS;
    friend TestShip;
+   friend TestCrewDragonCenter;
 
    // Constructors
    Satellite() : pos(Position()), velocity(Velocity()), direction(Angle()),
                  angularVelocity(0.0), dead(false), radius(0.0) {}
-   Satellite(const Position& pos, const Velocity& vel, const Angle& angle, double angularVel, double radius);
+   Satellite(const Position& pos, const Velocity& vel, const Angle& angle, 
+      double angularVel, double radius);
    Satellite(const Position& pos, const Velocity& vel);
    Satellite(const Satellite& rhs);
 
@@ -67,10 +70,10 @@ protected:
    double radius;
 };
 
-/***************************************************
+/******************************************************************************
  * SATELLITE DERIVED
  * A simple derived class so we can test Satellite.
- ***************************************************/
+ *****************************************************************************/
 class SatelliteDerived : public Satellite
 {
 public:
@@ -83,10 +86,10 @@ public:
    virtual void input(const Interface* pUI) { assert(false); }
 };
 
-/***************************************************
+/******************************************************************************
  * SATELLITE DUMMY
  * A dummy Satellite with all methods asserting false
- ***************************************************/
+ *****************************************************************************/
 class SatelliteDummy : public Satellite
 {
 public:

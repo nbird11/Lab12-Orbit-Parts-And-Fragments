@@ -1,11 +1,11 @@
-/***********************************************************************
+/******************************************************************************
  * Source File:
  *    Ship
  * Author:
  *    Nathan Bird, Jared Davey, Brock Hoskins
  * Summary:
  *    The Ship controlled by the player
- ************************************************************************/
+ *****************************************************************************/
 
 #include "acceleration.h"
 #include "projectile.h"
@@ -17,10 +17,10 @@
 #include <cmath>
 #include <vector>
 
-/*****************************************************
+/******************************************************************************
  * Ship : CONSTRUCTOR
  *  Constructs the ship in top left corner of screen
- *****************************************************/
+ *****************************************************************************/
 Ship::Ship() : Satellite()
 {
    radius = 10.0;
@@ -30,11 +30,11 @@ Ship::Ship() : Satellite()
    isThrusting = false;
 }
 
-/*****************************************************
+/******************************************************************************
  * Ship : INPUT
  *  Changes orientation of the ship from keyboard input
- *****************************************************/
-void Ship::input(const Interface* pUI, double time, std::vector<Satellite*>& satellites)
+ *****************************************************************************/
+void Ship::input(const Interface* pUI)
 {
    if (pUI->isRight())
    {
@@ -45,24 +45,26 @@ void Ship::input(const Interface* pUI, double time, std::vector<Satellite*>& sat
       direction.add(-0.1);
    }
    if (pUI->isSpace())
-      fire(satellites);
+   {
+      setFiring();
+   }
    isThrusting = pUI->isDown();
-   move(time);
 }
 
-/*****************************************************
+/******************************************************************************
  * Ship : FIRE
  *  Fires (spawns) a projectile in direction ship is facing
- *****************************************************/
+ *****************************************************************************/
 void Ship::fire(std::vector<Satellite*>& satellites)
 {
    satellites.push_back(new Projectile(*this));
+   firing = false;
 }
 
-/*****************************************************
+/******************************************************************************
  * Ship : MOVE
  *  Move the ship, add thrust if thrusting
- *****************************************************/
+ *****************************************************************************/
 void Ship::move(double time)
 {
    double thrust = 2.0;  // m/s^2
@@ -85,10 +87,10 @@ void Ship::move(double time)
    velocity.add(accel, time / 2.0);
 }
 
-/*********************************************
+/******************************************************************************
  * Ship : DRAW
  *  use the passed ogstream to draw itself
- *********************************************/
+ *****************************************************************************/
 void Ship::draw(ogstream& gout)
 {
    gout.drawShip(pos, direction.getRadians(), isThrusting);

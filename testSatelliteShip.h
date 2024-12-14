@@ -1,11 +1,11 @@
-/***********************************************************************
+/******************************************************************************
  * Header File:
  *    TEST SHIP
  * Author:
  *    Brock Hoskins, Jared Davey, Nathan Bird
  * Summary:
  *    Tests for the ship
- ************************************************************************/
+ *****************************************************************************/
 #pragma once
 
 #include "satellite.h"
@@ -28,10 +28,10 @@ public:
       report("Ship");
    }
 private:
-   /************************************
+/******************************************************************************
     * MOVE : THRUST
     *  Move the ship while thrusting
-    ************************************/
+ *****************************************************************************/
    void move_thrust()
    {  // setup
       Ship s;
@@ -101,7 +101,8 @@ private:
       assertEquals(sats.size(), 1);
       assertUnit(typeid(*(sats[0])) == typeid(Projectile));
       assertEquals(sats[0]->pos.x, 500000000);
-      assertEquals(sats[0]->pos.y, 500000000 + (19 * Position::metersFromPixels));
+      assertEquals(sats[0]->pos.y, 500000000 + (
+         19 * Position::metersFromPixels));
       assertEquals(sats[0]->velocity.dx, 0.0);
       assertEquals(sats[0]->velocity.dy, 9000.0);
 
@@ -132,7 +133,8 @@ private:
       assertEquals(sats.size(), 1);
       assertUnit(typeid(*(sats[0])) == typeid(Projectile));
       assertEquals(sats[0]->pos.x, 500000000);
-      assertEquals(sats[0]->pos.y, 500000000 + (19 * Position::metersFromPixels));
+      assertEquals(sats[0]->pos.y, 500000000 + (
+         19 * Position::metersFromPixels));
       assertEquals(sats[0]->velocity.dx, 0.0);
       assertEquals(sats[0]->velocity.dy, 9022.0);
 
@@ -163,7 +165,8 @@ private:
       assertEquals(sats.size(), 1);
       assertUnit(typeid(*(sats[0])) == typeid(Projectile));
       assertEquals(sats[0]->pos.x, 500000000);
-      assertEquals(sats[0]->pos.y, 500000000 + (19 * Position::metersFromPixels));
+      assertEquals(sats[0]->pos.y, 500000000 + (
+         19 * Position::metersFromPixels));
       assertEquals(sats[0]->velocity.dx, 11.0);
       assertEquals(sats[0]->velocity.dy, 9000.0);
 
