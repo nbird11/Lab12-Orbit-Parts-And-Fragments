@@ -35,6 +35,7 @@ class TestHubbleTelescope;
 class TestSputnik;
 class TestStarlinkBody;
 class TestStarlinkArray;
+class TestProjectile;
 
  /*****************************************************************************
   * ANGLE
@@ -64,6 +65,7 @@ public:
    friend TestSputnik;
    friend TestStarlinkBody;
    friend TestStarlinkArray;
+   friend TestProjectile;
 
    // Constructors
    Angle()                  : radians(0.0)         {}

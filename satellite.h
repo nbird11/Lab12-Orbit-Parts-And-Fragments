@@ -36,6 +36,7 @@ class TestHubbleTelescope;
 class TestSputnik;
 class TestStarlinkBody;
 class TestStarlinkArray;
+class TestProjectile;
 
 /******************************************************************************
  * SATELLITE
@@ -64,6 +65,7 @@ public:
    friend TestSputnik;
    friend TestStarlinkBody;
    friend TestStarlinkArray;
+   friend TestProjectile;
 
    // Constructors
    Satellite() : pos(Position()), velocity(Velocity()), direction(Angle()),

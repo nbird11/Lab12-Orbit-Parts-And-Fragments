@@ -19,6 +19,7 @@
 #include "testSatelliteStarlink.h"
 #include "testSetelliteSputnik.h"
 #include "testVelocity.h"
+#include "testProjectile.h"
 
 #ifdef _WIN32
   #include <windows.h>
@@ -69,4 +70,5 @@ void testRunner()
    TestStarlinkBody().run();
 
    TestShip().run();
+   TestProjectile().run();
 }

@@ -33,6 +33,7 @@ class TestHubbleTelescope;
 class TestSputnik;
 class TestStarlinkBody;
 class TestStarlinkArray;
+class TestProjectile;
 
 // for add()
 class Acceleration;
@@ -66,6 +67,7 @@ class Velocity
    friend TestSputnik;
    friend TestStarlinkBody;
    friend TestStarlinkArray;
+   friend TestProjectile;
 
 public:
    // constructors

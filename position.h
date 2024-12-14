@@ -36,6 +36,7 @@ class TestHubbleTelescope;
 class TestSputnik;
 class TestStarlinkBody;
 class TestStarlinkArray;
+class TestProjectile;
 
 /******************************************************************************
  * Position
@@ -64,7 +65,8 @@ public:
    friend TestSputnik;
    friend TestStarlinkBody;
    friend TestStarlinkArray;
-   
+   friend TestProjectile;
+
    // constructors
    Position()            : x(0.0), y(0.0)  {}
    Position(double x, double y);

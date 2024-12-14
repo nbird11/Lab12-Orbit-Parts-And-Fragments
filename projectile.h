@@ -24,7 +24,7 @@ public:
    friend TestProjectile;
    friend TestShip;
 
-   //Projectile(const Position& pos, const Velocity& vel, const Angle& direction);
+   Projectile() : Satellite(), age(70) { radius = 1.0; }
    Projectile(const Satellite& rhs);
 
    void move(double time) override
