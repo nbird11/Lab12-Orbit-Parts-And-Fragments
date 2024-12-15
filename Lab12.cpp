@@ -43,37 +43,40 @@ class Demo
 {
 public:
    Demo(Position ptUpperRight) :
-      ptUpperRight(ptUpperRight),
-      timePerFrame(24.0 /*hoursPerDay*/ * 60.0 /*minutesPerHour*/ / 
-         30.0 /*frameRate*/)
+      ptUpperRight(ptUpperRight)
    {
-      satellites.push_back(new Ship);
+      reset();
+   }
 
-      satellites.push_back(new Sputnik(Position(-36515095.13, 21082000.0), 
-         Velocity(2050.0, 2684.68)));
+   void reset()
+   {
+      timePerFrame = 24.0 /*hoursPerDay*/ * 60.0 /*minutesPerHour*/ /
+         30.0 /*frameRate*/;
 
-      satellites.push_back(new GPS(Position(0.0, 26560000.0), 
-         Velocity(-3880.0, 0.0)));
-      satellites.push_back(new GPS(Position(0.0, -26560000.0), 
-         Velocity(3880.0, 0.0)));
-      satellites.push_back(new GPS(Position(23001634.72, 13280000.0), 
-         Velocity(-1940.00, 3360.18)));
-      satellites.push_back(new GPS(Position(23001634.72, -13280000.0), 
-         Velocity(1940.00, 3360.18)));
-      satellites.push_back(new GPS(Position(-23001634.72, -13280000.0), 
-         Velocity(1940.00, -3360.18)));
-      satellites.push_back(new GPS(Position(-23001634.72, 13280000.0), 
-         Velocity(-1940.00, -3360.18)));
+      satellites.clear();
 
-      satellites.push_back(new Hubble(Position(0.0, -42164000.0), 
-         Velocity(-3100, 0.0)));
+      satellites.push_back(new Ship);  // Ship in position 1 important
 
-      satellites.push_back(new CrewDragon(Position(0.0, 8000000.0), 
-         Velocity(-7900.0, 0.0)));
-
-      satellites.push_back(new Starlink(Position(0.0, -13020000.0), 
-         Velocity(5800.0, 0.0)));
-
+      satellites.push_back(new Sputnik(Position(-36515095.13, 21082000.0),
+                                       Velocity(2050.0, 2684.68)));
+      satellites.push_back(new GPS(Position(0.0, 26560000.0),
+                                   Velocity(-3880.0, 0.0)));
+      satellites.push_back(new GPS(Position(0.0, -26560000.0),
+                                   Velocity(3880.0, 0.0)));
+      satellites.push_back(new GPS(Position(23001634.72, 13280000.0),
+                                   Velocity(-1940.00, 3360.18)));
+      satellites.push_back(new GPS(Position(23001634.72, -13280000.0),
+                                   Velocity(1940.00, 3360.18)));
+      satellites.push_back(new GPS(Position(-23001634.72, -13280000.0),
+                                   Velocity(1940.00, -3360.18)));
+      satellites.push_back(new GPS(Position(-23001634.72, 13280000.0),
+                                   Velocity(-1940.00, -3360.18)));
+      satellites.push_back(new Hubble(Position(0.0, -42164000.0),
+                                      Velocity(-3100, 0.0)));
+      satellites.push_back(new CrewDragon(Position(0.0, 8000000.0),
+                                          Velocity(-7900.0, 0.0)));
+      satellites.push_back(new Starlink(Position(0.0, -13020000.0),
+                                        Velocity(5800.0, 0.0)));
       angleEarth = 0;
    }
 
@@ -136,13 +139,13 @@ public:
    double angleEarth;
 };
 
-/*************************************
+/******************************************************************************
  * All the interesting work happens here, when
  * I get called back from OpenGL to draw a frame.
  * When I am finished drawing, then the graphics
  * engine will wait until the proper amount of
  * time has passed and put the drawing on the screen.
- **************************************/
+ *****************************************************************************/
 void callBack(const Interface* pUI, void* p)
 {
    // the first step is to cast the void pointer into a game object. This
@@ -201,6 +204,12 @@ void callBack(const Interface* pUI, void* p)
    Position pt;
    pt.setMeters(0.0, 0.0);
    gout.drawEarth(pt, pDemo->angleEarth);
+
+   // restart
+   if (pUI->isR())
+   {
+      pDemo->reset();
+   }
 }
 
 double Position::metersFromPixels = 40.0;
