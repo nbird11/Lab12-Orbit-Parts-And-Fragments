@@ -2,6 +2,8 @@
 
 A C++ simulation of satellites orbiting Earth, featuring realistic orbital mechanics, collisions, and satellite fragmentation.
 
+![orbit demo screenshot](./orbit-screenshot.png)
+
 ## Overview
 
 The Orbit Simulator allows users to control a spacecraft while navigating through various satellites in Earth's orbit. The simulation includes multiple types of satellites with realistic orbital mechanics and collision detection.
